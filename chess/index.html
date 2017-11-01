@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Script Games</title>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js"></script>
+  <script src="js/chessboard-0.3.0.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="css/chessboard-0.3.0.css" media="screen" title="no title">
+
+  <link rel="stylesheet" href="../assets/css/prism.css">
+
+  <link rel="stylesheet" href="css/chess-style.css" media="screen" title="no title">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link rel="stylesheet" href="../assets/css/style.css" media="screen" title="no title">
+</head>
+
+<body>
+  <div class="wide">
+    <div class="blue sidebar">
+      <h4 class="center white-text">Player 1</h4>
+      <div class="container full_width center">
+        <br>
+      <!-- <pre class="language-javascript line-numbers"><code class="editor" id="player1_textarea"></code></pre> -->
+      <textarea spellcheck="false" class="editor" id="player1_textarea">     </textarea>
+      </div>
+      <div class="player_stats">
+        <table class="striped bordered">
+        <!-- <thead>
+          <tr>
+              <th>Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+          </tr>
+        </thead> -->
+
+        <tbody>
+          <tr>
+            <td>Min Time: <span class="min_time" id="min_time_p1">0<span> ms</td>
+            <td>Max Time: <span class="max_time" id="max_time_p1">0<span> ms</td>
+            <td>Avg. Time: <span class="avg_time" id="avg_time_p1">0<span> ms</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="main-content">
+
+      <div class="container">
+        <br>
+        <div id="board" style="width: 400px"></div>
+        <div style="display:none;">
+        <p>Status: <span id="status"></span></p>
+        <p>FEN: <span id="fen"></span></p>
+        <p>PGN: <span id="pgn"></span></p>
+      </div>
+    </br>
+        <a class="waves-effect waves-dark btn red" onclick="startPlaying()">Start Match</a>
+        <a class="waves-effect waves-dark btn blue" href="https://github.com/jhlywa/chess.js" target="_blank">Read Docs</a>
+      </div>
+    </div>
+
+    <div class="red sidebar right">
+      <h4 class="center black-text">Player 2</h4>
+      <div class="container full_width center">
+        <br>
+        <textarea spellcheck="false" class="editor" id="player2_textarea">     </textarea>
+      </div>
+
+      <div class="player_stats">
+        <table class="striped bordered">
+        <!-- <thead>
+          <tr>
+              <th>Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+          </tr>
+        </thead> -->
+
+        <tbody>
+          <tr>
+            <td>Min Time: <span class="min_time" id="min_time_p2">0<span> ms</td>
+            <td>Max Time: <span class="max_time" id="max_time_p2">0<span> ms</td>
+            <td>Avg. Time: <span class="avg_time" id="avg_time_p2">0<span> ms</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!--JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
+  <script src="../assets/js/prism.js" ></script>
+
+  <script src="js/boardinit.js"></script>
+  <script src="js/ai.js" charset="utf-8"></script>
+  <script src="../assets/js/designScript.js"></script>
+
+</body>
+
+</html>
