@@ -21,29 +21,22 @@
 
 <body>
   <div class="wide">
-    <div class="blue sidebar">
-      <a class="btn-floating waves-effect waves-dark blue" href="../"><i class="material-icons">apps</i></a>
+    <div class="blue sidebar" id="blueEditor">
+      <a class="btn-floating waves-effect waves-dark blue" style="position: fixed" href="../"><i class="material-icons">apps</i></a>
       <h4 class="center white-text">Player 1</h4>
+      <a class="btn-floating waves-effect waves-dark blue" onclick="ToggleEditorFocus('#blueEditor')"><i class="material-icons">fullscreen</i></a>
       <div class="container full_width center">
-        <br>
-      <!-- <pre class="language-javascript line-numbers"><code class="editor" id="player1_textarea"></code></pre> -->
+
+
       <textarea spellcheck="false" class="editor" id="player1_textarea">     </textarea>
       </div>
       <div class="player_stats">
         <table class="striped bordered">
-        <!-- <thead>
-          <tr>
-              <th>Name</th>
-              <th>Item Name</th>
-              <th>Item Price</th>
-          </tr>
-        </thead> -->
-
         <tbody>
           <tr>
-            <td>Min Time: <span class="min_time" id="min_time_p1">0<span> ms</td>
-            <td>Max Time: <span class="max_time" id="max_time_p1">0<span> ms</td>
-            <td>Avg. Time: <span class="avg_time" id="avg_time_p1">0<span> ms</td>
+            <td>Min Time: <span class="min_time" id="min_time_p1">0</span> ms</td>
+            <td>Max Time: <span class="max_time" id="max_time_p1">0</span> ms</td>
+            <td>Avg. Time: <span class="avg_time" id="avg_time_p1">0</span> ms</td>
           </tr>
         </tbody>
       </table>
@@ -61,13 +54,20 @@
         <p>PGN: <span id="pgn"></span></p>
       </div>
     </br>
-        <a class="waves-effect waves-dark btn red" onclick="startPlaying()">Start Match</a>
+        <a class="btn-floating waves-effect waves-dark green" onclick="toggle()" id="play_btn"><i class="material-icons">play_arrow</i></a>
+        <a class="btn-floating waves-effect waves-dark blue" onclick="toggle()" id="pause_btn" style="display:none"><i class="material-icons">pause</i></a>
+        <a class="btn-floating waves-effect waves-dark red" onclick="initBoard()"><i class="material-icons">stop</i></a>
+        &nbsp;
         <a class="waves-effect waves-dark btn blue" href="https://github.com/jhlywa/chess.js" target="_blank">Read Docs</a>
+
+          <h5 class=" orange-text" id="statusId">White to move</h5>
+
       </div>
     </div>
 
-    <div class="red sidebar right">
+    <div class="red sidebar right" id="redEditor">
       <h4 class="center black-text">Player 2</h4>
+      <a class="btn-floating waves-effect waves-dark red right" onclick="ToggleEditorFocus('#redEditor')"><i class="material-icons">fullscreen</i></a>
       <div class="container full_width center">
         <br>
         <textarea spellcheck="false" class="editor" id="player2_textarea">     </textarea>
@@ -75,19 +75,11 @@
 
       <div class="player_stats">
         <table class="striped bordered">
-        <!-- <thead>
+          <tbody>
           <tr>
-              <th>Name</th>
-              <th>Item Name</th>
-              <th>Item Price</th>
-          </tr>
-        </thead> -->
-
-        <tbody>
-          <tr>
-            <td>Min Time: <span class="min_time" id="min_time_p2">0<span> ms</td>
-            <td>Max Time: <span class="max_time" id="max_time_p2">0<span> ms</td>
-            <td>Avg. Time: <span class="avg_time" id="avg_time_p2">0<span> ms</td>
+            <td>Min Time: <span class="min_time" id="min_time_p2">0</span> ms</td>
+            <td>Max Time: <span class="max_time" id="max_time_p2">0</span> ms</td>
+            <td>Avg. Time: <span class="avg_time" id="avg_time_p2">0</span> ms</td>
           </tr>
         </tbody>
       </table>

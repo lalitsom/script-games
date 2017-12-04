@@ -17,3 +17,12 @@ function getTextareaCode(){
 }
 
 setTextareaCode();
+
+function ToggleEditorFocus(editorId){
+  console.log(editorId)
+  if( $(editorId).hasClass("full-focused")){
+      $(editorId).removeClass("full-focused");
+  }else{
+    $(editorId).addClass("full-focused");
+  }
+}

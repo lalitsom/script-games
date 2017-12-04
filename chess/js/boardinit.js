@@ -62,7 +62,7 @@ var updateStatus = function() {
       status += ', ' + moveColor + ' is in check';
     }
   }
-
+    document.getElementById('statusId').innerHTML = status;
   _chess.statusEl.html(status);
   _chess.fenEl.html(_chess.game.fen());
   _chess.pgnEl.html(_chess.game.pgn());
@@ -90,27 +90,66 @@ var moveTime = {
   b: {time_list: [], min_time: 20000, max_time: 0, sum_time: 0}
 }
 
+function toggle(){
+  if(document.getElementById('play_btn').style.display == "none"){
+    showPlayBtn();
+    pauseTimeLoop();
+  }else{
+    showPauseBtn();
+    getTextareaCode();
+    runNextMove();
+  }
+}
+
+
+function showPauseBtn(){
+  document.getElementById('pause_btn').style.display = "inline-block";
+  document.getElementById('play_btn').style.display = "none";
+}
+
+function showPlayBtn(){
+  document.getElementById('pause_btn').style.display = "none";
+  document.getElementById('play_btn').style.display = "inline-block";
+}
+
+function pauseTimeLoop(){
+  if(window.timer_handle){
+    clearTimeout(window.timer_handle);
+  }
+}
+
+
 
 function startPlaying() {
   getTextareaCode();
-  console.log('match-started')
-  initBoard()
+  console.log('match-started');
+  initBoard();
   runNextMove();
 }
 
 
 function initBoard() {
-  if(window.timer_handle){
-    clearTimeout(window.timer_handle);
-  }
+  pauseTimeLoop();
+  showPlayBtn();
   _chess.game.reset();
   _chess.board.position(_chess.game.fen())
+  totalMoves = {
+    w: {total: 0, captured: 0},
+    b: {total: 0, captured: 0}
+  }
+
+  moveTime = {
+    w: {time_list: [], min_time: 20000, max_time: 0, sum_time: 0},
+    b: {time_list: [], min_time: 20000, max_time: 0, sum_time: 0}
+  }
+
+
 }
 
 
 
 function runNextMove(){
-
+updateStatus();
 var possibleMoves = _chess.game.moves();
   // exit if game is over
   if (_chess.game.game_over() === true || _chess.game.in_draw() === true || possibleMoves.length === 0){
