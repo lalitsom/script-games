@@ -62,7 +62,7 @@ var updateStatus = function() {
       status += ', ' + moveColor + ' is in check';
     }
   }
-
+    document.getElementById('statusId').innerHTML = status;
   _chess.statusEl.html(status);
   _chess.fenEl.html(_chess.game.fen());
   _chess.pgnEl.html(_chess.game.pgn());
@@ -142,14 +142,14 @@ function initBoard() {
     w: {time_list: [], min_time: 20000, max_time: 0, sum_time: 0},
     b: {time_list: [], min_time: 20000, max_time: 0, sum_time: 0}
   }
-  
+
 
 }
 
 
 
 function runNextMove(){
-
+updateStatus();
 var possibleMoves = _chess.game.moves();
   // exit if game is over
   if (_chess.game.game_over() === true || _chess.game.in_draw() === true || possibleMoves.length === 0){

@@ -21,11 +21,12 @@
 
 <body>
   <div class="wide">
-    <div class="blue sidebar">
-      <a class="btn-floating waves-effect waves-dark blue" href="../"><i class="material-icons">apps</i></a>
+    <div class="blue sidebar" id="blueEditor">
+      <a class="btn-floating waves-effect waves-dark blue" style="position: fixed" href="../"><i class="material-icons">apps</i></a>
       <h4 class="center white-text">Player 1</h4>
+      <a class="btn-floating waves-effect waves-dark blue" onclick="ToggleEditorFocus('#blueEditor')"><i class="material-icons">fullscreen</i></a>
       <div class="container full_width center">
-        <br>
+
 
       <textarea spellcheck="false" class="editor" id="player1_textarea">     </textarea>
       </div>
@@ -59,11 +60,14 @@
         &nbsp;
         <a class="waves-effect waves-dark btn blue" href="https://github.com/jhlywa/chess.js" target="_blank">Read Docs</a>
 
+          <h5 class=" orange-text" id="statusId">White to move</h5>
+
       </div>
     </div>
 
-    <div class="red sidebar right">
+    <div class="red sidebar right" id="redEditor">
       <h4 class="center black-text">Player 2</h4>
+      <a class="btn-floating waves-effect waves-dark red right" onclick="ToggleEditorFocus('#redEditor')"><i class="material-icons">fullscreen</i></a>
       <div class="container full_width center">
         <br>
         <textarea spellcheck="false" class="editor" id="player2_textarea">     </textarea>
