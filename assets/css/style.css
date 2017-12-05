@@ -78,6 +78,7 @@ i{ vertical-align: middle !important; }
   border-width: medium;
   border-color: black;
   resize: vertical;
+  text-align: left;
 }
 .full_width{
   padding: 0;
@@ -95,5 +96,9 @@ i{ vertical-align: middle !important; }
 }
 
 .full-focused .editor{
+  height: 100%;
+}
+
+.editor > .CodeMirror{
   height: 100%;
 }

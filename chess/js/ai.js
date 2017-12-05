@@ -2,41 +2,31 @@
 
 ai1 = function (fenState) {
   // random moves
-  var game = new Chess()
-  game.load(fenState)
-
+  var game = new Chess();
+  game.load(fenState);
   var possibleMoves = game.moves();
-
   var randomIndex = Math.floor(Math.random() * possibleMoves.length);
-
-  console.log('white', possibleMoves[randomIndex])
-
+  console.log('white', possibleMoves[randomIndex]);
   return possibleMoves[randomIndex];
 }
 
 
-
-
-
 ai2 = function (fenState) {
-
-  var game = new Chess(fenState)
+  var game = new Chess(fenState);
   var possibleMoves = game.moves();
 
-
-  // user defined functions
+  // define on your functions
   function getEmptyFields(_fen) {
-
-    _fen = _fen.substring(0,_fen.indexOf(' '))
+    _fen = _fen.substring(0,_fen.indexOf(' '));
     sum =0;
     for (char of _fen){
       if (isNaN(char) === false){
-        sum += parseInt(char)
+        sum += parseInt(char);
       }
     }
     return sum;
   }
-  //end of user defined functions
+  //end of function def
 
 
 bestMove = possibleMoves[Math.floor(Math.random() * possibleMoves.length)];

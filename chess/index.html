@@ -11,7 +11,10 @@
   <script src="js/chessboard-0.3.0.js" charset="utf-8"></script>
   <link rel="stylesheet" href="css/chessboard-0.3.0.css" media="screen" title="no title">
 
-  <link rel="stylesheet" href="../assets/css/prism.css">
+
+  <link rel="stylesheet" href="../lib/codemirror.css">
+
+
 
   <link rel="stylesheet" href="css/chess-style.css" media="screen" title="no title">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -27,8 +30,7 @@
       <a class="btn-floating waves-effect waves-dark blue" onclick="ToggleEditorFocus('#blueEditor')"><i class="material-icons">fullscreen</i></a>
       <div class="container full_width center">
 
-
-      <textarea spellcheck="false" class="editor" id="player1_textarea">     </textarea>
+        <div id="player1_textarea" class="editor" data-language="javascript"></div>
       </div>
       <div class="player_stats">
         <table class="striped bordered">
@@ -70,7 +72,7 @@
       <a class="btn-floating waves-effect waves-dark red right" onclick="ToggleEditorFocus('#redEditor')"><i class="material-icons">fullscreen</i></a>
       <div class="container full_width center">
         <br>
-        <textarea spellcheck="false" class="editor" id="player2_textarea">     </textarea>
+        <div id="player2_textarea" class="editor" data-language="javascript"></div>
       </div>
 
       <div class="player_stats">
@@ -91,11 +93,32 @@
 
   <!--JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
-  <script src="../assets/js/prism.js" ></script>
 
   <script src="js/boardinit.js"></script>
   <script src="js/ai.js" charset="utf-8"></script>
   <script src="../assets/js/designScript.js"></script>
+  <script src="../lib/codemirror.js"></script>
+  <script src="../lib/javascript/javascript.js"></script>
+
+  <script type="text/javascript">
+  editor_p1 = document.getElementById('player1_textarea');
+  editor_p2 = document.getElementById('player2_textarea');
+
+
+  var myCodeMirror_p1 = CodeMirror(editor_p1, {
+  value: ai1.toString(),
+  mode:  "javascript",
+  lineWrapping: true,
+  lineNumbers: true
+  });
+
+  var myCodeMirror_p2 = CodeMirror(editor_p2, {
+  value: ai2.toString(),
+  mode:  "javascript",
+  lineWrapping: true,
+  lineNumbers: true 
+  });
+  </script>
 
 </body>
 
