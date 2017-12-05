@@ -91,6 +91,7 @@ var moveTime = {
 }
 
 function toggle(){
+  updateStatus();
   if(document.getElementById('play_btn').style.display == "none"){
     showPlayBtn();
     pauseTimeLoop();
@@ -142,8 +143,7 @@ function initBoard() {
     w: {time_list: [], min_time: 20000, max_time: 0, sum_time: 0},
     b: {time_list: [], min_time: 20000, max_time: 0, sum_time: 0}
   }
-
-
+  updateStatus();
 }
 
 
