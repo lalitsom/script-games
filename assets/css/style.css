@@ -46,7 +46,7 @@ i{ vertical-align: middle !important; }
   top: 0;
   bottom: 0;
   resize: horizontal;
-  overflow: auto;    
+  overflow: auto;
 }
 .right{
   right: 0;
@@ -88,4 +88,12 @@ i{ vertical-align: middle !important; }
 .full-focused{
   width: 100%;
   z-index: 100;
+}
+
+.full-focused > .full_width{
+  height: 100%;
+}
+
+.full-focused .editor{
+  height: 100%;
 }
