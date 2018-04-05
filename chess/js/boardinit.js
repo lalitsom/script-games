@@ -20,7 +20,7 @@ var onDrop = function(source, target) {
   var move = _chess.game.move({
     from: source,
     to: target,
-    promotion: 'q' // NOTE: always promote to a queen for example simplicity
+    promotion: 'q' // NOTE: always promote to a queen for simplicity
   });
 
   // illegal move

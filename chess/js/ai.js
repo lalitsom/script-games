@@ -5,8 +5,7 @@ ai1 = function (fenState) {
   var game = new Chess();
   game.load(fenState);
   var possibleMoves = game.moves();
-  var randomIndex = Math.floor(Math.random() * possibleMoves.length);
-  console.log('white', possibleMoves[randomIndex]);
+  var randomIndex = Math.floor(Math.random() * possibleMoves.length);  
   return possibleMoves[randomIndex];
 }
 
@@ -43,6 +42,6 @@ bestMove = possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
     }
 
   }
-  console.log('black', bestMove)
+  
   return bestMove;
 }
